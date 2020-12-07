@@ -71,12 +71,12 @@ def add_pitch():
         return redirect(url_for('main.index'))
     return render_template('new_pitch.html',title = title,pitch_form=pitch_form )
 
-@main.route('/pitches/interview_pitches')
+@main.route('/pitches/present_pitches')
 def interview():
 
-    pitches = Pitch.get_pitches('interview')
+    pitches = Pitch.get_pitches('present')
 
-    return render_template("interview.html", pitches = pitches)
+    return render_template("present.html", pitches = pitches)
 
 @main.route('/pitches/product_pitches')
 def product():
