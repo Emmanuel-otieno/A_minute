@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+<!-- Styles block -->
+
+
+{%block content%}
+<div class="container" style= "font-family: 'Cormorant Upright', serif; padding-bottom: 20px; padding-top: 20px;">
+    <div class="row ">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="well well-lg">
+                <h3>Interview Pitches</h3>
+                <p>Want to ace an interview in just a few words, welcome.</p>
+                <a href="{{url_for('main.interview')}}" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <div class="well well-lg">
+                <h3>Product Pitches</h3>
+                <p>Want to talk about your products, you're in the right place.</p>
+                <a href="{{url_for('main.product')}}" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="well well-lg text-center">
+                <h3>Promotion Pitches</h3>
+                <p>Want to promote anything, step right up and begin.</p>
+                <a href="{{url_for('main.promotion')}}" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{%endblock%}

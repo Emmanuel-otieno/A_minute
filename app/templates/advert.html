@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{%block content%}
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Ranga" rel="stylesheet">
+<div class="jumbotro">
+    <h1>Promotion Pitches</h1>
+</div>
+<div class="container">
+    <hr>
+    <div class="row">
+        {{macro.pitchesDisplay(pitches)}}
+    </div>
+</div>
+{%endblock%}

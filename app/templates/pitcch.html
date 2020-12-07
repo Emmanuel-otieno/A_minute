@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%block styles%}
+    {{ super() }}
+  
+{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <h3>{{pitch.pitch_title}}</h3>
+        <hr>
+        <p>{{pitch.pitch_content}}</p>
+        <span>
+        <p>Posted on {{date}} by {{pitch.user.username| capitalize}}</p>
+        <a href="/pitch/{{pitch.id}}?like=1">
+            <i class="far fa-thumbs-up"></i>
+        </a>{{pitch.likes}} <a href="/pitch/{{pitch.id}}?dislike=1">
+            <i class="far fa-thumbs-down"></i>
+        </a>{{pitch.dislikes}}</span>
+
+    </div>
+    <div class="row">
+        <h4>Comments</h4>
+        <hr>
+        {% if current_user.is_authenticated %}
+            {{ wtf.quick_form(comment_form) }}
+        {%endif%}
+        {{macro.displayComments(comments)}}
+    </div>
+
+</div>
+{%endblock%}
