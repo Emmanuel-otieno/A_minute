@@ -85,12 +85,12 @@ def product():
 
     return render_template("product.html", pitches = pitches)
 
-@main.route('/pitches/promotion_pitches')
+@main.route('/pitches/advert_pitches')
 def promotion():
 
-    pitches = Pitch.get_pitches('promotion')
+    pitches = Pitch.get_pitches('advert')
 
-    return render_template("promotion.html", pitches = pitches)
+    return render_template("advert.html", pitches = pitches)
 
 @main.route('/pitch/<int:id>', methods = ['GET','POST'])
 def pitch(id):
