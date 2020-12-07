@@ -19,7 +19,7 @@ def login():
         flash('Invalid username or Password')
 
     title = "One Minute Pitch login"
-    return render_template('auth/login.html',login_form = login_form,title=title)
+    return render_template('auth/signin.html',login_form = login_form,title=title)
 
 
 @auth.route('/register',methods = ["GET","POST"])
@@ -33,8 +33,8 @@ def register():
         mail_message("Welcome to One Minute Pitch","email/welcome_user",user.email,user=user)
 
         return redirect(url_for('auth.login'))
-        title = "New Account"
-    return render_template('auth/register.html',registration_form = form)
+        
+    return render_template('auth/signup.html',registration_form = form)
 
 @auth.route('/logout')
 @login_required
