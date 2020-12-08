@@ -11,22 +11,22 @@ import datetime
 def index():
 
     title = 'Welcome to Pitches Site'
-    present_piches = Pitch.get_pitches('present')
-    product_piches = Pitch.get_pitches('product')
+    present_pitches = Pitch.get_pitches('present')
+    product_pitches = Pitch.get_pitches('product')
     advert_pitches = Pitch.get_pitches('advert')
 
-    return render_template('index.html',title = title, present = present_piches, product = product_piches, advert = advert_pitches)
+    return render_template('index.html',title = title, present = present_pitches, product = product_pitches, advert = advert_pitches)
 
 @main.route('/user/<name>')
 def profile(name):
     user = User.query.filter_by(username = name).first()
-    pitches_count = Pitch.count_pitches(name)
+    
     user_joined = user.date_joined.strftime('%b %d, %Y')
 
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user,pitches = pitches_count,date = user_joined)
+    return render_template("profile/profile.html", user = user,date = user_joined)
 
 @main.route('/user/<name>/update',methods = ['GET','POST'])
 @login_required
