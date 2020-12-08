@@ -11,11 +11,11 @@ import datetime
 def index():
 
     title = 'Welcome to Pitches Site'
-    interview_piches = Pitch.get_pitches('interview')
+    present_piches = Pitch.get_pitches('present')
     product_piches = Pitch.get_pitches('product')
-    promotion_pitches = Pitch.get_pitches('promotion')
+    advert_pitches = Pitch.get_pitches('advert')
 
-    return render_template('index.html',title = title, interview = interview_piches, product = product_piches, promotion = promotion_pitches)
+    return render_template('index.html',title = title, present = present_piches, product = product_piches, advert = advert_pitches)
 
 @main.route('/user/<name>')
 def profile(name):
