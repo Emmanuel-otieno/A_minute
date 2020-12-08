@@ -69,7 +69,7 @@ def add_pitch():
         new_pitch = Pitch(pitch_title=title,pitch_content=pitch,category=category,user=current_user,likes=0,dislikes=0)
         new_pitch.save_pitch()
         return redirect(url_for('main.index'))
-    return render_template('new_pitch.html',title = title,pitch_form=pitch_form )
+    return render_template('new_pitch.html',pitch_form=pitch_form )
 
 @main.route('/pitches/present_pitches')
 def interview():
